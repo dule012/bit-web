@@ -1,0 +1,64 @@
+#a {
+    font-family: KaushanScript-Regular', Times, serif;
+    font-size: 200%;
+    letter-spacing: 20px;
+    line-height: 60px;
+
+}
+#aa {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+}
+#aa::first-line {
+    color: green;
+    background-color: beige;
+}
+#aaa::first-letter {
+    color:red;
+    background-color: lightblue;
+}
+#aaa {
+    font-family: AlexBrush-Regular, Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 20px;
+    line-height: 60px;
+    background-color: deepskyblue;
+
+}
+p {
+    font-weight: normal;
+    font-size: 20px;
+    font-size: 2em;
+
+}
+span {
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'AlexBrush-Regular';
+    src: url('AlexBrush-Regular.ttf');
+ 
+}
+@font-face {
+    font-family:  'KaushanScript-Regular';
+    src: url('KaushanScript-Regular.otf');
+}
+#b::first-letter{
+    color:rgba(229, 255, 0, 0.486);
+    font-size: 60px;
+}
+#b {
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: justify;
+    text-indent: 600px;
+    vertical-align: baseline;
+}
+#bb {
+    text-transform: lowercase;
+    text-decoration: line-through;
+    text-align: justify;
+    text-indent: 300px;
+    vertical-align: middle;
+}
+
