@@ -1,0 +1,18 @@
+#min-height{
+    min-height: 250px;
+    max-height: 900px;
+}
+#par1{
+    background-color: yellow;
+    max-width: 500px;
+    min-width: 200px;
+    height:500px;
+    overflow: hidden;
+}
+
+#par2{
+    background-color: red;
+    width: 600px;
+    max-height: 200px;
+    
+}

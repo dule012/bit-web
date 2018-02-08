@@ -1,0 +1,63 @@
+p{
+background-color: yellow;
+border-width: 5px;
+margin-right: 20px;
+display: inline-block;
+
+}
+
+.dashed-border{
+    border-style:dashed;
+    border-color: red;
+
+}
+
+#solid-border{
+    border-style: solid;
+    border-color: green;
+    width: 400px;
+    
+visibility: hidden;
+}
+
+#wide_left_margin{
+    width: 200px;
+}
+#wide_left_margin:hover {
+visibility: hidden;
+}
+#allmargins{
+    width: 300px;
+}
+h1 {
+    width: 960px;
+   padding:50px 0px;
+   margin:50px auto;
+    text-align: center;
+    background-color: blue;
+    font-family: 'Nanum Brush Script', cursive;
+    -webkit-box-shadow: 28px 36px 30px 2px rgba(0,0,0,0.59);
+-moz-box-shadow: 28px 36px 30px 2px rgba(0,0,0,0.59);
+box-shadow: 28px 36px 30px 2px rgba(0,0,0,0.59);
+border-radius: 50%;
+}
+#listsquare {
+    list-style-type: square;
+}
+#listcircle {
+    list-style-type: circle;
+}
+#roman {
+    list-style-type: upper-roman;
+}
+#alpha {
+    list-style-type: upper-alpha;
+}
+
+#imglist1, #imglist2{
+    list-style-image: url('slicica..jpg');
+    width: 200px;
+}
+#imglist2{
+    list-style-position: inside;
+}
