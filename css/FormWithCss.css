@@ -1,0 +1,74 @@
+form {
+    width: 400px;
+    background-color: rgba(180, 180, 179, 0.808);
+    border-radius: 0 20px 0 20px;
+    margin: 0 auto;
+    padding: 30px;
+   
+}
+#fullname {
+    background-image: url("fullname.png");
+    background-size: 23px 23px;
+    background-repeat: no-repeat;
+}
+#email {
+    background-image: url('http://www.myiconfinder.com/uploads/iconsets/256-256-2551789035d03d242a37aec568dc8eea-email.png');
+    background-size: 23px 23px;
+    background-repeat: no-repeat;
+}
+input[placeholder]{
+    padding-left: 25px;
+}
+#contactnumber {
+    background-image: url('https://cdn2.iconfinder.com/data/icons/picons-essentials/71/mobile-512.png');
+    background-size: 23px 23px;
+    background-repeat: no-repeat;
+
+}
+#address {
+    background-image:url('https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-4/128/home2-512.png');
+    background-size: 23px 23px;
+    background-repeat: no-repeat;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+}
+button {
+    padding: 15px;
+    background-color: red;
+    color:white;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 6px;
+    height: 30px;
+}
+#span1 {
+    color: #4000ff;
+    font-weight: bold;
+    font-size: 30px;
+}
+#span2 {  
+    color: #ff8000;
+    font-weight: bold;
+    font-size: 30px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
+hr {
+    width: 100%;
+}
+
+div {
+    text-align: right;
+}
+
