@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#outside {
+    list-style-type: none;
+    background-color: orange;
+}
+#outside > li {
+    display: inline-block;
+    padding: 12px;
+    margin-left: 7px;
+}
+#drop{
+    position: relative;
+}
+#inside {
+    list-style-type: none;
+    width: 150px;
+    display: none;
+    background-color: lightblue;
+    position: absolute;
+    top: 42px;
+    left: -1px;
+    z-index: 1;
+}
+#inside> li {
+    padding: 15px;
+}
+#outside>li:hover {
+   background-color: white;
+}
+#drop:hover #inside{
+    display: block;
+}
+#home {
+    background-color: rgb(179, 7, 1);
+}
+#inside > li:hover {
+    background-color: rgba(112, 22, 124, 0.438);
+}
