@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 #container {
-    width: 960px;
+    width: 100%;
     margin: 0 auto;
 }
 #img-wrapper {
@@ -12,7 +12,7 @@
     width: 100px;
     height: 100px;
     margin-left: 10px;
-    background-image: url('img.jpg');
+    background-image: url('HTML and CSS.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center ;
@@ -29,6 +29,7 @@
 main{
     clear: both;
     margin-top: 110px;
+    
 }
 .article-wrapper {
     padding-left: 5px;
@@ -38,11 +39,11 @@ main{
     margin-top: 15px;
 }
 #article-wrapper {
-    width: 380px;
+    width: 39%;
     float: left;
 }
 #section-wrapper {
-    width: 580px;
+    width: 59%;
     border-left: 3px solid black;
     float: left;
     padding-left: 10px;
