@@ -3,6 +3,9 @@
     margin : 0;
     box-sizing: border-box;
 }
+body{
+    font-family: Lepo;
+}
 header {
     width: 100%;
     background-image: url("banner3.jpg");
@@ -22,6 +25,10 @@ header {
     margin: 0 auto;
     margin-top: 5px;
 }
+#readmore:hover{
+    background-color: rgb(168, 135, 223);
+    color: rgb(170, 12, 12);
+}
 header p {
     font-size: 24px;
     text-transform: uppercase;
@@ -35,6 +42,9 @@ header p {
     border-right: 0px;
     font-size: 24px;
     font-weight: bold;
+}
+#build-wrapper {
+    display: inline-block;
 }
 #estate {
     color: gray;
@@ -61,6 +71,10 @@ nav ul li a {
     font-size: 12px;
     font-weight: bold;
 }
+nav ul li:hover {
+    background-color: rgb(36, 36, 44);
+    color: black;
+}
 #firstSection {
     padding: 0 10%;
 }
@@ -73,6 +87,7 @@ nav ul li a {
 }
 #firstSection article {
     margin-top: 18px;
+    width: 100%;
 }
 #firstSection article #firsth3 {
     color: lightblue;
@@ -112,7 +127,6 @@ nav ul li a {
     width: 70px;
     border-radius: 50%;
     border: 3px solid white;
-    float:left;
 }
 #secondSection article {
     background-color: lightblue;  
@@ -148,7 +162,7 @@ nav ul li a {
 #thirdSection article:nth-child(2){
     background-color: rgb(109, 211, 109);
     color: white;
-    padding: 15px;
+    padding: 35px;
 }
 #thirdSection article:nth-child(2) p{
     margin-top: 15px;
@@ -168,7 +182,7 @@ nav ul li a {
 }
 #thirdSection article:nth-child(3) {
     background-color: rgb(214, 25, 98);
-    padding: 25px;
+    padding: 35px;
 }
 #thirdSection article:nth-child(3) p {
     margin-top: 30px;
@@ -219,26 +233,35 @@ footer ul {
     list-style-type: none;
     margin-bottom: 15px;
     overflow: hidden;
+    width: 100%;
 }
 footer ul li {
     display: inline-block;
-    float: left;
     color: white;
-    margin-left: 7px;
+    margin-left: 2px;
 }
 footer p {
     color: white;
     margin-top: 15px;
 }
+@font-face {
+    font-family: 'Lepo';
+    src: url('fontawesome-webfont.woff');
+}
 
 @media only screen and (min-width: 768px){
-     nav {
+    
+#readmore {
+    width: 15%;
+    padding: 12px 5px;
+} 
+    nav {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         overflow: hidden;
-        padding: 20px 20px 0 20px ;
+        padding: 7px 20px 0 20px ;
     }
     nav div{
         float: left;
@@ -248,17 +271,25 @@ footer p {
         float: right;
         overflow: hidden;
         background-color: transparent;
+        margin-right: 12px;
     }
     nav ul li {
         float: left;
-        margin-right: 15px;
+       padding: 4px 9px;
+    }
+    #build-wrapper {
+        border: 3px solid white;
+        border-right: 0px;
     }
     #build {
-        border: 5px solid white;
-        border-right: 0;
+        border: 0px;
+        padding: 5px;
     }
     #estate {
         color:white;
+        display: inline-block;
+        margin-top: 3px;
+        margin-left: 5px;
     }
     header  {
         padding: 30% 0 30% 0;
@@ -268,13 +299,7 @@ footer p {
         font-size: 36px;
         width: 100%;
     }
-    #readmore {
-        background-color: #2874A6;
-        width: 20%;
-        padding: 14px 12px;
-        border-radius:20px;
-        margin-top: 10px;
-    }
+    
     #firstSection article:nth-child(2) {
         width:50%;
         float: left;
@@ -304,7 +329,128 @@ footer p {
         margin-right: 20px;
     }
     #secondSection article:nth-child(3) .div-wrapper h3 {
-        width: 30%;
+        width: 150px;
+        height: 18px;
     }
-
+    #secondSection article .div-wrapper h3 {
+        font-size: 16px;
+        width: 70%;
+    }
+    #secondSection article .div-wrapper .img-wrapper {
+        width: 25%;
+    }
+    #secondSection article {
+        padding: 5% 0% 5% 2%;
+        width: 48%;
+    }
+    #secondSection article:nth-child(3) {
+        float: right;
+    }
+    #secondSection #secondP {
+        margin-bottom: 50px;
+    }
+    #thirdSection  {
+        margin-top: 100px;
+        overflow: hidden;
+    }
+    #thirdSection #thirdP {
+        margin-bottom: 50px;
+    }
+    #thirdSection article {
+        width: 50%;
+        float: left;
+        height: 200px;
+    }
+    
+    #thirdSection article:nth-child(5) img {
+        height: 100%;
+    }
+    #fourthSection input {
+        width: 32%;
+        float: left;
+    }
+    form {
+        overflow: hidden;
+    }
+    input:nth-child(2) {
+        margin-left: 13px;
+        margin-right: 13px;
+    }
+    #fourthSection textarea {
+        clear: both;
+        margin-top: 60px;
+    }
+    
+    footer ul li {
+        margin-left: 15px;
+    }
+}
+@media only screen and (min-width: 1200px){
+    #readmore {
+        width: 10%;
+        padding: 7px 2px;
+    } 
+    header p{
+        font-size: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+    #firstSection {
+        margin-top: 100px;
+    }
+    #firstSection article:nth-child(2) {
+      width: 30%;
+      display: inline-block;
+      margin-left: 6%;
+    }
+    #firstSection article:nth-child(3) {
+        width: 30%;
+        display: inline-block;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      #firstSection article:nth-child(4) {
+        width: 30%;
+        display: inline-block;
+      }
+      #secondSection {
+          margin-top: 60px;
+          padding: 0 3.5% 0 3.5%;
+          width: 100%;
+      }
+      #secondSection article {
+          padding-left: 2%;
+          padding-right: 2%;
+          text-align: left;
+          width: 32%;
+          display: inline-block;
+      }
+      #secondSection article p {
+          text-align: justify;
+      }
+    #secondSection article:nth-child(2),#secondSection article:nth-child(3),#secondSection article:nth-child(4) {
+        float: left;
+        margin: 0;
+    }
+   
+    #secondSection article:nth-child(3){
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    #thirdSection {
+    overflow: hidden;
+    }
+#thirdSection article{
+    width: 25%;  
+}
+#fourthSection #form {
+    margin-top: 40px;
+}
+#fourthSection #form input {
+    width: 32.4%;
+}
+footer ul li {
+    margin-left: 15px;
+}
 }
