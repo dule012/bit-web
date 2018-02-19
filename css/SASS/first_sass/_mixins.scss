@@ -1,0 +1,20 @@
+@mixin paragraph($x, $y, $blur, $color,$bold) {
+    -moz-box-shadow: $x,$y,$blur,$color;
+    -webkit-box-shadow: $x,$y,$blur,$color;
+    -ms-box-shadow: $x,$y,$blur,$color;
+    box-shadow: $x $y $blur $color;
+    font-weight: $bold;
+}
+@mixin box-shadow($x,$y,$blur,$color,$bold) {
+    -moz-box-shadow: $x,$y,$blur,$color;
+    -webkit-box-shadow: $x,$y,$blur,$color;
+    -ms-box-shadow: $x,$y,$blur,$color;
+    box-shadow: $x $y $blur $color;
+    font-weight: $bold;
+} 
+@mixin text-shadow($shadow1) {
+    -webkit-text-shadow: $shadow1;
+    -moz-text-shadow: $shadow1;
+    -ms-text-shadow: $shadow1;
+    text-shadow:  $shadow1;
+}
