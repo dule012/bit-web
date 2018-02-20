@@ -1,0 +1,116 @@
+$firstParagraphWidth: 300px;
+$ParagraphWidth: 300px;
+$secondParagraphWidth: 250px;
+$bodyWidth: 960px;
+$j:1;
+$padding: 20px;
+$padding2: 10px;
+$border: 3px;
+$border2: 3px;
+$tablewidth: 500px;
+body {
+    width: $bodyWidth;
+    margin: 0 auto;
+}
+
+p {
+    float: left;
+    display: inline-block;
+}
+
+@for $i from 1 through 4 {
+    p:nth-of-type(#{$i}) {
+        font-size: 16px+($i - 1)*2px;
+    }
+}
+
+@mixin if {
+    @if $j==1 {
+        color: rgb(64, 224, 208);
+    }
+    @else if $j==2 {
+        color: rgb(64, 24, 208);
+    }
+    @else if $j==3 {
+        color: rgb(64, 224, 28);
+    }
+    @else if $j==4 {
+        color: rgb(164, 24, 18);
+    }
+}
+@function widthToBBox($a, $b, $c){
+    @return    $a + $b * 2 + $c * 2;
+}
+#one {
+    border: 1px red solid;
+    width: $firstParagraphWidth;
+    &:hover {
+        background-color: lightblue;
+    }
+    @include if;
+}
+
+#two {
+    @extend #one;
+    border-color: aqua;
+    width: $secondParagraphWidth;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+#three {
+    @extend #one;
+    border-color: green;
+    &:hover {
+        border-width: 5px;
+        width: widthToBBox($firstParagraphWidth, $padding, $border )
+    }
+}
+
+p {
+    float: left;
+    display: inline-block;
+    // width: $bodyWidth - $firstParagraphWidth - $secondParagraphWidth;
+}
+
+#four {
+    padding: $padding2;
+    border: $border2 solid red;
+    width: $ParagraphWidth;
+}
+#five {
+    box-sizing: border-box;
+    border: $border2 solid red;
+    padding: $padding2;
+    width:  widthToBBox($ParagraphWidth, $padding2, $border2 );
+}
+
+a {
+    text-decoration: none;
+    &link {
+        color: red;
+    }
+    &:visited {
+        color: orange;
+    }
+    &:active {
+        color: yellow;
+    }
+}
+@function tdWidth($a,$b){
+    @return $a / $b;
+}
+table {
+    width: $tablewidth;   
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 20px;
+ 
+    box-sizing: border-box;
+    width: tdWidth($tablewidth, 6);
+
+}
