@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #r1_c1 {
+            background-color: blue;
+        }
+
+        #r1_c2 {
+            background-color: blue;
+        }
+
+        #r2_c1 {
+            background-color: red;
+        }
+
+        #r2_c2 {
+            background-color: red;
+        }
+
+        #r2_c3 {
+            background-color: red;
+        }
+
+        #r3_c1 {
+            background-color: lime;
+        }
+
+        #r3_c2 {
+            background-color: lime;
+        }
+        *[class^="col-"] {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--offset-->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="r1_c1" class="col-sm-4 col-md-4 col-lg-4">prvi</div>
+            <div id="r1_c2" class="col-sm-4 col-md-4 col-lg-4">drugi</div>
+        </div>
+        <div class="row">
+            <div id="r2_c1" class="col-sm-4 col-md-4 col-lg-4 ">treci</div>
+            <div id="r2_c2" class="col-sm-4 col-md-4 col-lg-4 offset-md-3">cetvrti</div>
+
+        </div>
+        <div class="row">
+            <div id="r3_c1" class="col-sm-4 col-md-4 col-lg-4 offset-md-3">peti</div>
+            <div id="r3_c2" class="col-sm-4 col-md-4 col-lg-4 offset-md-1">sesti</div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+           
+                <div id="r1_c1" class="col-sm-4 col-md-4 col-lg-3">prvi</div>
+                <div id="r1_c2" class="col-sm-4 col-md-4 col-lg-3">drugi</div>
+                <div id="r1_c3" class="col-sm-4 col-md-4 col-lg-3">treci</div>
+    
+            <div class=" col-lg-3">
+                <div class="row">
+                <div id="r0_c0" class="col-sm-12 col-md-12 col-lg-12">jedandva</div>
+                <div id="r0_c0" class="col-sm-12 col-md-12 col-lg-12">dvatri</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="r2_c1" class="col-sm-6 col-md-6 col-lg-6 ">sesti</div>
+        <div id="r2_c2" class="col-sm-6 col-md-6 col-lg-6 ">sedmi</div>
+    </div>
+    <div class="row">
+        <div id="r3_c1" class="col-sm-12 col-md-12 col-lg-12">osmi</div>  
+    </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
