@@ -13,34 +13,29 @@
 
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="row">
-                <div class="col-lg-2 offset-lg-4">
-                    <a class="navbar-brand" href="#">BIT STUDENT</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="col-lg-2 offset-lg-4">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Portfolio
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <nav id="navigacija" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">BIT STUDENT</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"> MENU
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Portfolio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
         </nav>
+
         <header>
             <img src="img/portfolio/profile.png" alt="Profile">
             <p>BOOTSTRAP AND SASS</p>
@@ -49,29 +44,119 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="coll-sm-12">
-                <p>PORTFOLIO</p>
+
+        <section id="portfolio" class="row">
+            <h1 class="coll-sm-12 col-md-12 col-lg-12">PORTFOLIO</h1>
+            <div class="coll-sm-12 col-md-6 col-lg-4">
+                <img src="img/portfolio/cabin.png" alt="cabin">
             </div>
-            <div class="coll-sm-12">
-                <img src="img/portfolio/cabin.png" alt="cabin"> </div>
-            <div class="coll-sm-12">
+            <div class="coll-sm-12 col-md-6 col-lg-4">
                 <img src="img/portfolio/cake.png" alt="cake">
             </div>
-            <div class="coll-sm-12">
-                <img src="img/portfolio/circus.png" alt="circus"> </div>
-            <div class="coll-sm-12">
+            <div class="coll-sm-12 col-md-6 col-lg-4">
+                <img src="img/portfolio/circus.png" alt="circus">
+            </div>
+            <div class="coll-sm-12 col-md-6 col-lg-4">
                 <img src="img/portfolio/game.png" alt="game">
             </div>
-            <div class="coll-sm-12">
+            <div class="coll-sm-12 col-md-6 col-lg-4">
                 <img src="img/portfolio/safe.png" alt="safe">
             </div>
-            <div class="coll-sm-12">
+            <div class="coll-sm-12 col-md-6 col-lg-4">
                 <img src="img/portfolio/submarine.png" alt="submarine">
+            </div>
+
+        </section>
+
+    </div>
+
+    <div class="container-fluid">
+
+        <section id="about">
+            <div class="row">
+                <h1 class="coll-sm-12 col-md-12">ABOUT</h1>
+                <div class="col-lg-4 offset-lg-2">
+                    <p class="coll-sm-12 col-md-12 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto inventore velit ea nemo, dolor quidem
+                        dolores explicabo vero aliquid numquam, ex hic! Sapiente repellendus temporibus, alias maiores asperiores
+                        optio neque.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="coll-sm-12 col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit dicta nihil atque velit aperiam,
+                        odio, officiis animi aliquam vel adipisci culpa perspiciatis, fugit laborum consequuntur repudiandae
+                        ab. Unde, dignissimos hic?</p>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-primary">Find Out More</button>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <div class="container">
+
+        <section id="forma" class="row">
+            <h1 class="coll-sm-12 col-md-12 col-lg-12">CONTACT ME</h1>
+            <form class=" col-lg-8 offset-lg-2">
+
+                <div class="form-group coll-sm-12 col-md-12">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                </div>
+
+                <div class="form-group coll-sm-12 col-md-12 col-lg-12">
+                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+
+                <div class="form-group coll-sm-12 col-md-12 col-lg-12">
+                    <input type="text" class="form-control" placeholder="Phone number">
+                </div>
+
+                <div class="form-group coll-sm-12 col-md-12 col-lg-12">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" colls="5" placeholder="Message">Message
+                    </textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </section>
+    </div>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 class="col-sm-12">LOCATION</h4>
+                    <p class="col-sm-12 ">Centar za obrazovanje</p>
+                    <p class="col-sm-12 ">BIT TECHOLOGY</p>
+                    <p class="col-sm-12">Nemanjina 4/I Beograd</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="col-sm-12 ">AROUND THE WEB</h4>
+                    <img class="col-sm-12 " src="fb.png" alt="Fblogo">
+                </div>
+                <div class="col-md-4">
+                    <h4 class="col-sm-12">MORE DETAILS</h4>
+                    <p class="col-sm-12">We believe that that the future of Serbia firmly demends on our abillity to scale the number of individulas
+                        involved in the IT sector That is why we founded BIT</p>
+                </div>
+                <br>
+                <br>
+                <br>
+                <p class="col-sm-12 col-md-12">Copyright &copy; Bit Students 2018</p>
+                <p class="col-sm-12 col-md-12">Bit thanks to Start Bootstrap!</p>
             </div>
         </div>
 
-    </div>
+    </footer>
+
+
 
 
 
