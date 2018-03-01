@@ -6,26 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie list</title>
-    <link rel="stylesheet" href="">
-    <style>
+    <link rel="stylesheet" href="moviesJS.css">
+<style>
     * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body {
-    text-align: center;
-    margin: 0 auto;}
+
 form {
-    text-align: center;
+    width: 50%;
     margin: 0 auto;
-    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
-
-
+form label {
+    margin-top: 30px;
+    text-align: left;
+}
+form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    display: block;
+    margin-top: 10px;
+    height: 42px;
+   
+}
+form button {
+    width: 30%;
+    background-color: lightgreen;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    
+}
+form select{ 
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 14px;
+    height: 42px;
+}
+form span {
+    color: red;
+}
 .bg:nth-child(2n +1) {
+    background-color: rgb(117, 195, 221);
+}
+.bg:nth-child(2n+2){
     background-color: lightblue;
 }
+h1 {
+    text-align: center;
+}
+form fieldset {
+padding: 30px;
+background-color: lightgrey;
+border-radius: 30px 0px 30px 0px;
+}
+form p {
+    font-size: 23px;
+}
+form legend {
+    font-size: 30px;
+    font-weight: bold;
+}
+form ul {
+    list-style-type: none;
+    margin-top: 30px;
+    text-align: left;
+}
+form ul li {
+    color: black;
+    padding: 10px;
+    width: fit-content;
+}
+
 </style>
 </head>
 
@@ -34,14 +91,14 @@ form {
     <form action="#">
         <fieldset>
             <legend>Movie</legend>
-            <label for="#">Title
-                <br>
+            <label>
+                <p>Title</p>
                 <input id="text" type="text" placeholder="Title">
                 <span id="output1"></span>
             </label>
             <br>
-            <label for="#">Length (min)
-                <br>
+            <label>
+                <p>Length (min)</p>
                 <input id="number" type="number" placeholder="Length in min">
                 <span id="output2"></span>
             </label>
@@ -55,16 +112,51 @@ form {
                 <option value="Advanture">Advanture</option>
                 <option value="Action">Action</option>
             </select>
+            <span id="output3"></span>
             <br>
             <button id="submit" type="button">Add Movie</button>
             <ul id="ul">
 
             </ul>
+            <span style="color:black;font-size:20px;">All movies length:</span>
+            <span id="length"></span>
         </fieldset>
-        <span>All movies length:</span>
-        <span id="length"></span>
+
+
+        <fieldset>
+            <legend>Program</legend>
+
+            <label>
+                <p>Date</p>
+                <input id="date" type="date">
+                <span id="#"></span>
+            </label>
+
+            <button id="program" type="button">Create program</button>
+
+            <ul id="ul1">
+
+            </ul>
+
+            <label>
+                <p>Movie</p>
+                <select name="Genre" id="genre">
+                    <option value=""></option>
+                </select>
+            </label>
+
+            <label>
+                <p>Program</p>
+                <select name="Genre" id="genre">
+                    <option value=""></option>
+                </select>
+            </label>
+
+            <button id="addMovie" type="button">Add movie to program</button>
+
+        </fieldset>
     </form>
-    <span id="output3"></span>
+
     <script>
 
 
@@ -98,9 +190,9 @@ form {
 
                 arrOfMovies.push(new Movie(titleText, lengthNumber, firstAndLastLetter));
                 document.getElementById('ul').innerHTML += '<li class="bg">' + arrOfMovies[arrOfMovies.length - 1].info() + '</li>';
-                var b =document.getElementById('length').innerHTML;
+                var b = document.getElementById('length').innerHTML;
                 document.getElementById('length').innerHTML = b + arrOfMovies[arrOfMovies.length - 1].lengthNumber;
-                //Kroz for petlju niza arrOfMovies pravilno se radi
+                //Kroz for petlju niza arrOfMovies pravilno se radi!!!!!!!!!!!!!
                 document.getElementById('output1').innerHTML = '';
                 document.getElementById('output2').innerHTML = '';
                 document.getElementById('output3').innerHTML = '';
@@ -110,17 +202,17 @@ form {
                 if (titleText == '') {
                     if (lengthNumber == '') {
                         if (selectOption == '-') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                         } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = '';
                         }
                     } else {
                         if (selectOption == '-') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                             document.getElementById('output2').innerHTML = '';
 
@@ -133,21 +225,21 @@ form {
                 } else if (lengthNumber == '') {
                     if (titleText == '') {
                         if (selectOption == '-') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                         } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = '';
                         }
                     } else {
                         if (selectOption == '-') {
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                             document.getElementById('output1').innerHTML = '';
                         } else {
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output1').innerHTML = '';
                             document.getElementById('output3').innerHTML = '';
                         }
@@ -155,17 +247,17 @@ form {
                 } else if (selectOption == '-') {
                     if (titleText == '') {
                         if (lengthNumber == '') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                         } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                             document.getElementById('output2').innerHTML = '';
                         }
                     } else {
                         if (lengthNumber == '') {
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
                             document.getElementById('output3').innerHTML = 'You  have to take a genre';
                             document.getElementById('output1').innerHTML = '';
                         } else {
@@ -176,6 +268,14 @@ form {
                     }
                 }
             }
+            function Program(movie,movieDate) {
+                this.movie = movie;
+                this.movieDate = movieDate;
+                this.info = function() {
+                    return this.movie.info() + this.movieDate;
+                }
+            }
+
         });
     </script>
 
