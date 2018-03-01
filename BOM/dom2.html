@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div img {
+            width: 33%;
+        }
+
+        .selected {
+            border: 5px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="priroda1.jpg" alt="priroda1">
+        <img src="priroda2.jpg" alt="priroda2">
+        <img src="priroda3.jpg" alt="priroda1">
+    </div>
+    <div>
+        <img src="priroda4.jpg" alt="priroda1">
+        <img src="priroda5.jpg" alt="priroda1">
+        <img src="priroda6.jpg" alt="priroda1">
+    </div>
+
+    <ul>
+        <li>Jedan</li>
+        <li>Dva</li>
+        <li>Tri</li>
+        <li>Cetiri</li>
+    </ul>
+    <div></div>
+    <div></div>
+
+    <form action=" ">
+        <label for="">
+            <input type="text">
+        </label>
+        <label for="">
+            <input type="text " required value="Labela 1">
+        </label>
+        <label for="">
+            <input type="text">
+        </label>
+        <label for="">
+            <input type="text " required>
+        </label>
+    </form>
+    <script>
+        var one = document.getElementsByTagName('div')[0];
+        one.firstElementChild.className = "selected";
+        function moving1() {
+            var pos1 = document.getElementsByClassName('selected')[0];
+            pos1.className = '';
+            pos1.parentElement.nextElementSibling.firstElementChild.nextElementSibling.className = 'selected';
+
+        }
+        moving1();
+
+        function using() {
+            var a = document.querySelector('li').firstChild.nodeValue;
+            alert(a);
+        }
+        using();
+
+
+        function select1(arr, n) {
+            var first = document.createElement('select');
+            // 
+            for (var i = 0; i < arr.length; i++) {
+                var second = document.createElement('option');
+                var text = document.createTextNode(arr[i]);
+                second.appendChild(text);
+                first.appendChild(second);
+            }
+            n.appendChild(first);
+        }
+        var pos1 = document.querySelector('div:nth-child(4)');
+        select1(['Chrome', 'Firefox', 'Opera', 'IE'], pos1);
+
+        function select2(arr, n) {
+            var select = '<select>';
+            var option = '';
+            for (var i = 0; i < arr.length; i++) {
+                option += '<option>' + arr[i] + '</option>' + '\n';
+            }
+            select += option + '</select>';
+            n.innerHTML = select;
+        }
+        var pos2 = document.querySelector('div:nth-child(5)');
+        select2(['sto', 'stolica', 'kompjuter'], pos2);
+
+        function m() {
+            var n = document.querySelectorAll('input');
+            for (var i = 0; i < n.length; i++) {
+                if (n[i].hasAttribute('required') && n[i].value == "") {
+                    n[i].classList.add('selected');
+                }
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

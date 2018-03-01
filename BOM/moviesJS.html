@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie list</title>
+    <link rel="stylesheet" href="">
+    <style>
+    * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    text-align: center;
+    margin: 0 auto;}
+form {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+.bg:nth-child(2n +1) {
+    background-color: lightblue;
+}
+</style>
+</head>
+
+<body>
+    <h1>Movie list</h1>
+    <form action="#">
+        <fieldset>
+            <legend>Movie</legend>
+            <label for="#">Title
+                <br>
+                <input id="text" type="text" placeholder="Title">
+                <span id="output1"></span>
+            </label>
+            <br>
+            <label for="#">Length (min)
+                <br>
+                <input id="number" type="number" placeholder="Length in min">
+                <span id="output2"></span>
+            </label>
+            <br>
+            <select name="Genre" id="genre">
+
+                <option value="-">-</option>
+                <option value="Commedy">Commedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horor">Horor</option>
+                <option value="Advanture">Advanture</option>
+                <option value="Action">Action</option>
+            </select>
+            <br>
+            <button id="submit" type="button">Add Movie</button>
+            <ul id="ul">
+
+            </ul>
+        </fieldset>
+        <span>All movies length:</span>
+        <span id="length"></span>
+    </form>
+    <span id="output3"></span>
+    <script>
+
+
+        var submit = document.querySelector('#submit');
+
+        var arrOfMovies = [];
+        submit.addEventListener('click', function () {
+            var title = document.querySelector('#text');
+            var length = document.querySelector('#number');
+            var select = document.querySelector('#genre');
+
+            var titleText = title.value;
+            var lengthNumber = length.value;
+            var selectOption = select.options[select.selectedIndex].value;
+            var firstAndLastLetter = selectOption.charAt(0) + selectOption.charAt(selectOption.length - 1).toUpperCase();
+
+
+
+            function Movie(titleText, lengthNumber, selectOption) {
+                this.titleText = titleText;
+                this.lengthNumber = lengthNumber;
+                this.selectOption = selectOption;
+                this.info = function () {
+                    return this.titleText + ', ' + this.lengthNumber + ' min' + ', ' + this.selectOption;
+                }
+            }
+
+
+
+            if (titleText != '' && lengthNumber != '' && selectOption != '-') {
+
+                arrOfMovies.push(new Movie(titleText, lengthNumber, firstAndLastLetter));
+                document.getElementById('ul').innerHTML += '<li class="bg">' + arrOfMovies[arrOfMovies.length - 1].info() + '</li>';
+                var b =document.getElementById('length').innerHTML;
+                document.getElementById('length').innerHTML = b + arrOfMovies[arrOfMovies.length - 1].lengthNumber;
+                //Kroz for petlju niza arrOfMovies pravilno se radi
+                document.getElementById('output1').innerHTML = '';
+                document.getElementById('output2').innerHTML = '';
+                document.getElementById('output3').innerHTML = '';
+                document.querySelector('form').reset();
+
+            } else {
+                if (titleText == '') {
+                    if (lengthNumber == '') {
+                        if (selectOption == '-') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    } else {
+                        if (selectOption == '-') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output2').innerHTML = '';
+
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = '';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    }
+                } else if (lengthNumber == '') {
+                    if (titleText == '') {
+                        if (selectOption == '-') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    } else {
+                        if (selectOption == '-') {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output1').innerHTML = '';
+                        } else {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output1').innerHTML = '';
+                            document.getElementById('output3').innerHTML = '';
+                        }
+                    }
+                } else if (selectOption == '-') {
+                    if (titleText == '') {
+                        if (lengthNumber == '') {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                        } else {
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output2').innerHTML = '';
+                        }
+                    } else {
+                        if (lengthNumber == '') {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field NOW';
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output1').innerHTML = '';
+                        } else {
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                            document.getElementById('output1').innerHTML = '';
+                            document.getElementById('output2').innerHTML = '';
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

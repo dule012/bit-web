@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100%;
+            height: 900px;
+            background-image: url('field.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        div img {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="player.png" alt="player" id="slika">
+    </div>
+
+    <script>
+        var a = document.querySelector('div');
+        a.addEventListener('click', function (event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            console.log(x);
+            document.getElementById('slika').style.left = x - 30 + 'px';
+            document.getElementById('slika').style.top = y - 30 + 'px';
+        })
+    </script>
+</body>
+
+</html>

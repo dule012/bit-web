@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .select {
+            background-color: red
+        }
+
+        .bottom1 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70%;
+        }
+
+        .bottom2 {
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+
+        }
+
+        #chat {
+            margin-top: 20px;
+            width: 300px;
+            height: 500px;
+            border: 5px solid blue;
+        }
+        .nesto {
+            background-color: lightblue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <button value="Toggle Background" onclick="change()">dugme</button>
+    <input onclick="autoBgChange()" value="Turn auto on" type="button" />
+    <div style="width: 300px;height: 300px;border:2px solid black">
+
+    </div>
+
+
+
+
+    <div id="chat" style="position:relative;">
+        <p>hello world</p>
+        <p>Learning javascript</p>
+        <input id="text" class="bottom1" type="text" name="text" >
+        <button class="bottom2" onclick="add()">Send</button>
+    </div>
+
+
+
+
+    <script>
+        function change() {
+            var n = document.querySelector('div').classList.toggle('select');
+            /* var n = document.querySelector('div');
+             if (n.className === 'select') {
+                 n.className = '';
+             } else {
+                 n.className = 'select';
+             }
+         }
+
+
+ */
+        }
+        var interval;
+
+        function autoBgChange() {
+            var m = document.querySelector('input');
+
+            if (m.getAttribute('value') === "Turn auto on") {
+                m.setAttribute('value', 'Turn auto off');
+                interval = setInterval(change, 500);
+            } else {
+                clearInterval(interval);
+                m.setAttribute('value', 'Turn auto on');
+            }
+        }
+
+
+        function add() {
+            var a = document.getElementById('text');
+            var div = document.getElementById('chat');
+            var b = '<p class="nesto">' + a.value + '</p>';
+            div.innerHTML += b;
+        }
+            
+            document.getElementById('text').onkeyup = function(event) {
+                console.log('tekst');
+                console.log(event);
+                if (event.keyCode == 13) {
+                    add();
+                }
+            }
+
+    </script>
+</body>
+
+</html>
