@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: #0212fe;
+            height: 950px;
+            background-image: url('bg.jpg');
+            background-repeat: repeat-x;
+            background-position: bottom;
+            position: relative;
+            width: 100%;
+        }
+
+        img {
+            position: absolute;
+            bottom: 85px;
+            left: 0;
+            width: 90px;
+            height: 90px;
+        }
+
+        #run {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="mario.png" alt="#" id="stay">
+        <img src="mario_running.gif" alt="#" id="run">
+    </div>
+
+    <script>
+
+        var i = 0;
+        var div = document.getElementsByTagName('div')[0];
+        
+        window.addEventListener('keydown', function (event) {
+            var rect = document.querySelector('#run').getBoundingClientRect();
+            if (event.keyCode == 39) {
+                i += 7;
+                document.getElementById('stay').style.display = 'none';
+                document.getElementById("run").style.display = 'block';
+
+                document.getElementById("run").style.left = i + 'px';
+                console.log(div.style);
+                
+                if (rect.left == 1135){
+                    document.getElementById("run").style.left = 0 + 'px';
+                }    
+            }
+
+        })
+        window.addEventListener('keyup', function (event) {
+
+            document.getElementById('stay').style.display = 'block';
+            document.getElementById("run").style.display = 'none';
+            var a = document.querySelector('div');
+
+        })
+
+    </script>
+</body>
+
+</html>
