@@ -146,73 +146,21 @@
                 selectMovie.appendChild(optionMovie);
             } else {
                 if (titleText == '') {
-                    if (lengthNumber == '') {
-                        if (selectOption == '-') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                        } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = '';
-                        }
-                    } else {
-                        if (selectOption == '-') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                            document.getElementById('output2').innerHTML = '';
-
-                        } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field NOW';
-                            document.getElementById('output2').innerHTML = '';
-                            document.getElementById('output3').innerHTML = '';
-                        }
-                    }
-                } else if (lengthNumber == '') {
-                    if (titleText == '') {
-                        if (selectOption == '-') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                        } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = '';
-                        }
-                    } else {
-                        if (selectOption == '-') {
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                            document.getElementById('output1').innerHTML = '';
-                        } else {
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output1').innerHTML = '';
-                            document.getElementById('output3').innerHTML = '';
-                        }
-                    }
-                } else if (selectOption == '-') {
-                    if (titleText == '') {
-                        if (lengthNumber == '') {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                        } else {
-                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                            document.getElementById('output2').innerHTML = '';
-                        }
-                    } else {
-                        if (lengthNumber == '') {
-                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                            document.getElementById('output1').innerHTML = '';
-                        } else {
-                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
-                            document.getElementById('output1').innerHTML = '';
-                            document.getElementById('output2').innerHTML = '';
-                        }
-                    }
+                            document.getElementById('output1').innerHTML = 'Have to fill out this field ';       
+                } else{
+                    document.getElementById('output1').innerHTML = '';
                 }
+                 if (lengthNumber == '') {
+                            document.getElementById('output2').innerHTML = 'Have to fill out this field ';
+                }else{
+                    document.getElementById('output2').innerHTML = '';
+                }
+                 if (selectOption == '-') {
+                            document.getElementById('output3').innerHTML = 'You  have to take a genre';
+                     
+                    }else{
+                        document.getElementById('output3').innerHTML = '';
+                    }
             }
         });
         document.getElementById('addProgram').addEventListener('click', function () {

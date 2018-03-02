@@ -28,44 +28,66 @@
         #run {
             display: none;
         }
+
+        .jump {
+            position: absolute;
+            bottom: 145px;
+            transition: all .5s;
+        }
     </style>
 </head>
 
 <body>
-    <div>
+    <div id='div'>
         <img src="mario.png" alt="#" id="stay">
+        <span id="text" class="text">JUMPED</span>
         <img src="mario_running.gif" alt="#" id="run">
     </div>
 
     <script>
-
         var i = 0;
+        var j = 0;
+        var k = 0;
         var div = document.getElementsByTagName('div')[0];
-        
+        var stay = document.getElementById('stay');
+        var run = document.getElementById('run');
+
+
         window.addEventListener('keydown', function (event) {
             var rect = document.querySelector('#run').getBoundingClientRect();
+
             if (event.keyCode == 39) {
                 i += 7;
+                k -= 3;
                 document.getElementById('stay').style.display = 'none';
                 document.getElementById("run").style.display = 'block';
-
-                document.getElementById("run").style.left = i + 'px';
-                console.log(div.style);
-                
-                if (rect.left == 1135){
-                    document.getElementById("run").style.left = 0 + 'px';
-                }    
+                document.getElementById("run").style.left = i - j + 'px';
+                run.style.transform = 'rotateY(0deg)';
+                document.getElementById('div').style.backgroundPosition = k + 'px bottom';  
             }
 
-        })
+            if (event.keyCode == 37) {
+                j += 7;
+                k += 3;
+                stay.style.display = 'none';
+                run.style.display = 'block';
+                run.style.transform = 'rotateY(180deg)';
+                run.style.left = i - j + 'px';
+                div.style.backgroundPosition = k + 'px bottom';
+            }
+            if (event.keyCode == 32) {
+                stay.classList.add('jump');
+            }
+
+        });
         window.addEventListener('keyup', function (event) {
 
             document.getElementById('stay').style.display = 'block';
             document.getElementById("run").style.display = 'none';
-            var a = document.querySelector('div');
-
-        })
-
+            text.style.display = 'none';
+            document.getElementById('stay').style.left = i - j + 'px';
+            stay.classList.remove('jump');
+        });
     </script>
 </body>
 
