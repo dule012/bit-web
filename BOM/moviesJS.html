@@ -7,83 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie list</title>
     <link rel="stylesheet" href="moviesJS.css">
-<style>
-    * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
 
-form {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 30px;
-}
-form label {
-    margin-top: 30px;
-    text-align: left;
-}
-form input {
-    width: 100%;
-    padding: 5px;
-    border-radius: 10px;
-    display: block;
-    margin-top: 10px;
-    height: 42px;
-   
-}
-form button {
-    width: 30%;
-    background-color: lightgreen;
-    margin-top: 30px;
-    padding: 10px;
-    border-radius: 8px;
-    color: white;
-    
-}
-form select{ 
-    margin-top: 30px;
-    width: 100%;
-    border-radius: 14px;
-    height: 42px;
-}
-form span {
-    color: red;
-}
-.bg:nth-child(2n +1) {
-    background-color: rgb(117, 195, 221);
-}
-.bg:nth-child(2n+2){
-    background-color: lightblue;
-}
-h1 {
-    text-align: center;
-}
-form fieldset {
-padding: 30px;
-background-color: lightgrey;
-border-radius: 30px 0px 30px 0px;
-}
-form p {
-    font-size: 23px;
-}
-form legend {
-    font-size: 30px;
-    font-weight: bold;
-}
-form ul {
-    list-style-type: none;
-    margin-top: 30px;
-    text-align: left;
-}
-form ul li {
-    color: black;
-    padding: 10px;
-    width: fit-content;
-}
-
-</style>
 </head>
 
 <body>
@@ -119,7 +43,7 @@ form ul li {
 
             </ul>
             <span style="color:black;font-size:20px;">All movies length:</span>
-            <span id="length"></span>
+            <span id="length">0</span>
         </fieldset>
 
 
@@ -129,10 +53,10 @@ form ul li {
             <label>
                 <p>Date</p>
                 <input id="date" type="date">
-                <span id="#"></span>
+                <span id="output4"></span>
             </label>
 
-            <button id="program" type="button">Create program</button>
+            <button id="addProgram" type="button">Create program</button>
 
             <ul id="ul1">
 
@@ -140,14 +64,14 @@ form ul li {
 
             <label>
                 <p>Movie</p>
-                <select name="Genre" id="genre">
+                <select name="Movie" id="movieSelect">
                     <option value=""></option>
                 </select>
             </label>
 
             <label>
                 <p>Program</p>
-                <select name="Genre" id="genre">
+                <select name="Program" id="programSelect">
                     <option value=""></option>
                 </select>
             </label>
@@ -160,10 +84,33 @@ form ul li {
     <script>
 
 
-        var submit = document.querySelector('#submit');
 
         var arrOfMovies = [];
-        submit.addEventListener('click', function () {
+        var totalMoviesLength = 0;
+
+        function Movie(titleText, lengthNumber, selectOption) {
+            this.titleText = titleText;
+            this.lengthNumber = parseInt(lengthNumber);
+            this.selectOption = selectOption;
+        }
+
+        Movie.prototype.info = function () {
+            return this.titleText + ', ' + this.lengthNumber + ' min' + ', ' + this.selectOption;
+        }
+        var movieObj;
+        arrOfMoviesForWatching = [];
+        function Program(movieDate) {
+            this.date = movieDate;
+            this.text = 'TBA';
+        }
+
+        Program.prototype.info = function () {
+            return this.movieDate + ', ' + this.programText;
+        }
+        var programObj;
+
+
+        document.querySelector('#submit').addEventListener('click', function () {
             var title = document.querySelector('#text');
             var length = document.querySelector('#number');
             var select = document.querySelector('#genre');
@@ -175,29 +122,28 @@ form ul li {
 
 
 
-            function Movie(titleText, lengthNumber, selectOption) {
-                this.titleText = titleText;
-                this.lengthNumber = lengthNumber;
-                this.selectOption = selectOption;
-                this.info = function () {
-                    return this.titleText + ', ' + this.lengthNumber + ' min' + ', ' + this.selectOption;
-                }
-            }
-
-
-
-            if (titleText != '' && lengthNumber != '' && selectOption != '-') {
-
-                arrOfMovies.push(new Movie(titleText, lengthNumber, firstAndLastLetter));
-                document.getElementById('ul').innerHTML += '<li class="bg">' + arrOfMovies[arrOfMovies.length - 1].info() + '</li>';
-                var b = document.getElementById('length').innerHTML;
-                document.getElementById('length').innerHTML = b + arrOfMovies[arrOfMovies.length - 1].lengthNumber;
+            if (titleText != '' && lengthNumber != 0 && !isNaN(lengthNumber) && selectOption != '-') {
+                movieObj = new Movie(titleText, lengthNumber, firstAndLastLetter);
+                arrOfMovies.push(movieObj);
+                document.getElementById('ul').innerHTML += '<li class="bg">' + arrOfMovies[arrOfMovies.length - 1].info() + '</li>'; //listice pravilno je da se append-uju!!!!!!!!!!!!!!!!
+                // console.log(typeof arrOfMovies[arrOfMovies.length - 1].lengthNumber);
+                totalMoviesLength += arrOfMovies[arrOfMovies.length - 1].lengthNumber;
+                document.getElementById('length').innerHTML = totalMoviesLength;
                 //Kroz for petlju niza arrOfMovies pravilno se radi!!!!!!!!!!!!!
+
+                var fillTitle = document.getElementById('output1').innerHTML;
+                var fillLength = document.getElementById('output2').innerHTML;
+                var selectGenre = document.getElementById('output3').innerHTML;
+
                 document.getElementById('output1').innerHTML = '';
                 document.getElementById('output2').innerHTML = '';
                 document.getElementById('output3').innerHTML = '';
                 document.querySelector('form').reset();
-
+                var selectMovie = document.getElementById('movieSelect');
+                var optionMovie = document.createElement('option');
+                var optionMovieText = document.createTextNode(movieObj.titleText);
+                optionMovie.appendChild(optionMovieText);
+                selectMovie.appendChild(optionMovie);
             } else {
                 if (titleText == '') {
                     if (lengthNumber == '') {
@@ -268,15 +214,32 @@ form ul li {
                     }
                 }
             }
-            function Program(movie,movieDate) {
-                this.movie = movie;
-                this.movieDate = movieDate;
-                this.info = function() {
-                    return this.movie.info() + this.movieDate;
-                }
-            }
-
         });
+        document.getElementById('addProgram').addEventListener('click', function () {
+            var programDate = document.getElementById('date').value;
+            if (programDate == '') {
+                document.getElementById('output4').innerHTML = 'You must take a date'
+            } else {
+                programObj = new Program(programDate);
+                arrOfMoviesForWatching.push(programObj);
+                console.log(arrOfMoviesForWatching);
+                var ul1 = document.getElementById('ul1');
+                var li1 = document.createElement('li');
+                var li1Text = document.createTextNode(programObj.date + ' ' + programObj.text);
+                li1.className = 'bg';
+                li1.appendChild(li1Text);
+                ul1.appendChild(li1);
+                var programSelect = document.getElementById('programSelect');
+                var programOption = document.createElement('option');
+                var programOptionText = document.createTextNode(arrOfMoviesForWatching[arrOfMoviesForWatching.length-1].date);
+                programOption.appendChild(programOptionText);
+                programSelect.appendChild(programOption);
+            }
+        });
+
+        var a = 'Sta se radi danas'
+        console.log(a.split('a'));
+
     </script>
 
 </body>
