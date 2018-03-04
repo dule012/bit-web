@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        div img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        div span {
+            font-weight: bold;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            transition: all .4s;
+            cursor: pointer;
+        }
+
+        div span:hover {
+            background-color: rgba(49, 36, 36, 0.918);
+            color: white;
+        }
+
+        #next {
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+
+        #previus {
+            position: absolute;
+            left: 0;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="priroda1.jpg" alt="priroda1">
+        <img src="priroda2.jpg" alt="">
+        <img src="priroda3.jpg" alt="">
+        <img src="priroda4.jpg" alt="">
+        <span id="next" onclick="slider(1)">NEXT</span>
+        <span id="previus" onclick="slider(-1)">PREVIUS</span>
+    </div>
+    <p>I na strelice mogu se menjati slicice :)</p>
+    <script>
+        var sum = 0;
+        var next = document.querySelector('#next');
+        var previus = document.querySelector('#previus');
+
+        function slider(m) {
+            var imgs = document.querySelectorAll('img');
+            sum += m;
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].style.display = 'none';
+            }
+            if (sum > imgs.length - 1) {
+                sum = 0;
+            }
+            if (sum < 0) {
+                sum = imgs.length - 1;
+            }
+            imgs[sum].style.display = 'block';
+        }
+        slider(0);
+        window.addEventListener('keydown', function (event) {
+            if (event.keyCode == 39) {
+                slider(1);
+            }
+        });
+        window.addEventListener('keydown', function (event) {
+            if (event.keyCode == 37) {
+                slider(-1);
+            }
+        });
+    </script>
+</body>
+
+</html>
