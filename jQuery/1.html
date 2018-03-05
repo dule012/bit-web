@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+
+    <style>
+        .border {
+            border-bottom: 1px solid red;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .active {
+            color: darkcyan;
+        }
+
+        .background {
+            background-color: purple;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul>
+        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, dignissimos?</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod mollitia facilis enim error magnam laboriosam.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+        <li>Lorem, ipsum.</li>
+    </ul>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        // $(document).ready(function () {
+        //     alert("Hello, world!")
+        // });
+
+        $(function () {
+            $('li:first').addClass('border');
+            $('li').addClass('uppercase');
+            $('li:eq(4)').css('text-transform', 'lowercase');
+            $('li:eq(3)').addClass('active');
+            var n = ($('li').length - 1) / 2;
+            $('li:eq(' + n + ')').addClass('background');
+        });
+
+    </script>
+</body>
+
+</html>

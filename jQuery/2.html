@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+</head>
+
+<body>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(function () {
+            var niz = ["priroda1.jpg", "priroda2.jpg", "priroda3.jpg", "priroda4.jpg", "priroda2.jpg", "priroda3.jpg"];
+            var image;
+            for (var i = 0; i < niz.length; i++) {
+                var math = Math.floor(700 * Math.random() + 100);
+                // make img tag
+                image = $('<img>');
+                image.attr('src', niz[i]);
+                image.attr('width', math + 'px');
+                image.attr("height", math + 'px');
+                if (image.attr('width') > 350 + 'px') {
+                    image.css('border', '5px solid red');
+                }
+                //set src
+                $('body').append(image);
+            }
+            var galeryTitle = $('<h1>Galery title</h1>');
+            $('img:eq(0)').before(galeryTitle);
+            $(galeryTitle).css({
+                "color": "blue",
+                "text-align": "center",
+            })
+        })
+
+    </script>
+</body>
+
+</html>
