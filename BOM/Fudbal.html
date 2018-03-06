@@ -23,23 +23,53 @@
             position: absolute;
             border: 1px solid black;
         }
+        button {
+         position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+        padding: 30px;
+        background-color: lightblue;
+        font-size: 30px;
+        }
     </style>
 </head>
 
 <body>
     <div>
         <img src="player.png" alt="player" id="slika">
+        <button>stop</button>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        var a = document.querySelector('div');
-        a.addEventListener('click', function (event) {
-            var x = event.clientX;
-            var y = event.clientY;
-            console.log(x);
-            document.getElementById('slika').style.left = x - 30 + 'px';
-            document.getElementById('slika').style.top = y - 30 + 'px';
-        })
+        // KOD U JS KOJI JE ISTI KAO JQUERY
+        // var a = document.querySelector('div');
+        // a.addEventListener('click', function (event) {
+        //     var x = event.clientX;
+        //     var y = event.clientY;
+        //     console.log(x);
+        //     document.getElementById('slika').style.left = x - 30 + 'px';
+        //     document.getElementById('slika').style.top = y - 30 + 'px';
+        // })
+        
+      $(function(){
+        var counter = 0;
+          $("div").on('click',function(event){
+              $("#slika").offset({ top: event.pageY, left: event.pageX });
+              
+              if(counter >= 2){
+                  $('div').off('click');
+                }
+                console.log(counter);
+              if(event.type == 'click'){
+                  counter++;
+              }
+             
+              $('button').click(function(){
+                  $('div').off('click');
+              });
+          });
+      })
     </script>
 </body>
 

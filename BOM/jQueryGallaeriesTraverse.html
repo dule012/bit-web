@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rosa {
+            width: 33%;
+            display: inline-block;
+        }
+        .rosa img {
+            width: 100%;
+        }
+        .select {
+            border: 5px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="rosa"><img src="priroda1.jpg"></div>
+        <div class="rosa"><img src="priroda2.jpg"></div>
+        <div class="rosa select"><img src="priroda3.jpg"></div>
+    </div>
+
+    <div>
+        <div class="rosa"><img src="priroda4.jpg"></div>
+        <div class="rosa"><img src="priroda5.jpg"></div>
+        <div class="rosa"><img src="priroda6.jpg"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".select").removeClass("select").parent().next().children(':eq(1)').addClass('select');
+        });
+    </script>
+</body>
+
+</html>

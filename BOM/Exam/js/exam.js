@@ -4,7 +4,7 @@ function Exam(subject, student, grade) {
     this.grade = grade;
 }
 Exam.prototype.getExamInfo = function () {
-    return this.subject.name + ', ' + this.student.name + ' ' + this.student.surname;
+    return this.subject.name + ', ' + this.student.getStudentData();
 }
 Exam.prototype.hasPassed = function () {
     if (this.grade > 5) {
@@ -15,5 +15,3 @@ Exam.prototype.hasPassed = function () {
         return false;
     }
 }
-
-var exam1 = new Exam(subjec1, student1, inputGrade);
