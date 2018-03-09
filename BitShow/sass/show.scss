@@ -1,0 +1,14 @@
+@mixin style ($bckground, $color ) {
+    background-color: $bckground;
+    color: $color;
+}
+
+header {
+    overflow: hidden;
+    @include style (rgb(44, 41, 41),white);
+}
+
+footer {
+    text-align: center;
+    @include style (rgb(44, 41, 41),white);
+}
