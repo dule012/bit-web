@@ -8,41 +8,41 @@ const UIModule = (function () {
         // }
         // document.querySelector(".mainPageContainer").innerHTML = createDiv(firstShow)
 
-    
 
-    // const createDiv = (show) => {
-    //     return `
-    //         <div class="col-sm-3">
-    //             <img src="${show.url}" alt="">
-    //             <p>${show.name}</p>
-    //         </div>
-    //     `
-    // }
-    tvShows.forEach((el) => {
-        let mainPageContainer = $('.mainPageContainer');
-        let a = $('<a>');
-        a.attr('href', 'showPage.html');
-        let div = $('<div>');
-        div.attr('class', 'col-sm-4')
-        div.css('border', '2px solid black');
-        let img = $('<img>');
-        img.attr('src',el.image.medium);
-        img.css({
-            'width': '100%',
-            'display': 'block'
+
+        // const createDiv = (show) => {
+        //     return `
+        //         <div class="col-sm-3">
+        //             <img src="${show.url}" alt="">
+        //             <p>${show.name}</p>
+        //         </div>
+        //     `
+        // }
+        tvShows.forEach((el) => {
+            let mainPageContainer = $('.mainPageContainer');
+            let a = $('<a>');
+            a.attr('href', 'showPage.html');
+            let div = $('<div>');
+            div.attr('class', 'col-sm-4');
+            div.css('border', '2px solid black');
+            let img = $('<img>');
+            img.attr('src', el.image.medium);
+            img.css({
+                'width': '100%',
+                'display': 'block',
+            });
+            let p = $('<p>');
+            p.text(el.name);
+            p.css({
+                'text-align': 'center',
+                'margin-top': '20px'
+            });
+            a.append(img);
+            a.append(p);
+            div.append(a);
+            mainPageContainer.append(div);
         });
-        let p = $('<p>');
-        p.text(el.name);
-        p.css({
-            'text-align': 'center',
-            'margin-top': '20px'
-        });
-        div.append(img);
-        div.append(p);
-        a.append(div);
-        mainPageContainer.append(a);
-    });
-}
+    }
     return {
         displayShowsForMainPage
     }
