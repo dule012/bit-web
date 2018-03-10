@@ -11,20 +11,23 @@ const dataModule = (function () {
     }
 
     class TVShow {
-        constructor(name, url, id) {
+        constructor(name, image, id, details) {
             this.name = name;
-            this.url = url;
+            this.image = image;
             this.id = id;
+            this.seasons = [];
+            this.casts = [];
+            this.details = details;
         }
     }
 
-    const createTVShow = (name, url, id) => {
-        return new TVShow(name, url, id);
+    const createTVShow = (name, image, id, details) => {
+        return new TVShow(name, image, id, details);
     }
 
     const adaptShowList = (showList) => {
         return showList.map((show) => {
-            return createTVShow(show.name, show.image.medium, show.id);
+            return createTVShow(show.name, show.image.medium, show.id, show.details);
         })
     }
 
