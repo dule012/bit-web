@@ -1,36 +1,33 @@
 const dataModule = (function () {
     class Show {
-        constructor(name, image, id, seasons, casts, details) {
+        constructor(name, image, id, summary) {
             this.name = name;
             this.image = image;
             this.id = id;
             this.seasons = [];
             this.casts = [];
-            this.details = details;
+            this.summary = summary;
         }
     }
 
     class TVShow {
-        constructor(name, image, id, details) {
-            this.name = name;
-            this.image = image;
-            this.id = id;
-            this.seasons = [];
-            this.casts = [];
-            this.details = details;
+        constructor(showArr) {
+            this.showArr = showArr;
         }
     }
 
-    const createTVShow = (name, image, id, details) => {
-        return new TVShow(name, image, id, details);
+    const createShow = (name, image, id, summary) => {
+        return new Show(name, image, id, summary);
     }
 
     const adaptShowList = (showList) => {
         return showList.map((show) => {
-            return createTVShow(show.name, show.image.medium, show.id, show.details);
+            return createShow(show.name, show.image.medium, show.id, show.summary);
         })
     }
-
+    const tvShowClass = (showArr) => {
+        return new TVShow(showArr);
+    }
     class Season {
         constructor(startDate, endDate) {
             this.startDate = new Date(startDate);
@@ -46,7 +43,8 @@ const dataModule = (function () {
     }
 
     return {
-        createTVShow,
-        adaptShowList
+        createShow,
+        adaptShowList,
+        tvShowClass
     }
 })();
