@@ -1,4 +1,4 @@
-const dataModule = (function () {
+const dataModule = ( ()  => {
     class Show {
         constructor(name, image, id, summary) {
             this.name = name;
@@ -22,7 +22,7 @@ const dataModule = (function () {
 
     const adaptShowList = (showList) => {
         return showList.map((show) => {
-            return createShow(show.name, show.image.medium, show.id, show.summary);
+            return createShow(show.name, show.image, show.id, show.summary);
         })
     }
     const tvShowClass = (showArr) => {

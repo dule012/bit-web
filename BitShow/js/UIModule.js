@@ -1,27 +1,7 @@
-const UIModule = (function () {
+const UIModule = (() => {
     const displayShowsForMainPage = (tvShows) => {
-        // console.log(tvShows);
-
-        // const [firstShow] = tvShows;
-        // for (var i = 0; i < 50; i++) {
-        //     document.querySelector(".mainPageContainer").innerHTML += createDiv
-        // }
-        // document.querySelector(".mainPageContainer").innerHTML = createDiv(firstShow)
-
-
-
-        // const createDiv = (show) => {
-        //     return `
-        //         <div class="col-sm-3">
-        //             <img src="${show.url}" alt="">
-        //             <p>${show.name}</p>
-        //         </div>
-        //     `
-        // }
         tvShows.forEach((el) => {
             let mainPageContainer = $('.mainPageContainer');
-            let a = $('<a>');
-            a.attr('href', 'showPage.html');
             let div = $('<div>');
             div.attr('class', 'col-sm-4');
             div.css('border', '2px solid black');
@@ -37,13 +17,34 @@ const UIModule = (function () {
                 'text-align': 'center',
                 'margin-top': '20px'
             });
-            a.append(img);
-            a.append(p);
-            div.append(a);
+            div.append(img);
+            div.append(p);
             mainPageContainer.append(div);
         });
     }
+
+    var divImg = document.querySelector('div.col-sm-8');
+    var pSum = document.querySelector('p#summary');
+    var main = document.querySelector('.mainPageContainer')
+
+    const createDivImgInSP = (src) => {
+        let divImg = $('.img');
+        let div1 = $('<div>');
+        div1.attr('class','col-sm-8');
+        let img1 = $('<img>');
+        img1.attr('src', src);
+        let p = $('<p>')
+        p.text('asdaasdasdda');
+        img1.attr('width','100%')
+        div1.append(p);
+        div1.append(img1);
+        divImg.append(div1);
+        console.log('ok')
+
+    }
+
     return {
-        displayShowsForMainPage
+        displayShowsForMainPage,
+        createDivImgInSP,
     }
 })();

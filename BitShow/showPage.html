@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>InfoPage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/show.css">
 </head>
+
 <body>
+    <header class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <p class="col-sm-3">BitShow</p>
+                <input class="col-sm-3" type="search" name="search" id="search" placeholder="Search">
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <h1></h1>
+        <div class="img row">
+            <!-- <div class="col-sm-8">
+
+            </div>
+            <div class="col-sm-4">
+
+            </div> -->
+        </div>
+        <h4>Show Details</h4>
+        <p id="summary">ad</p>
+    </section>
+    <footer class="container-fluid">
+        <div class="row">
+            <p class="col-sm-12">Copyright &copy; Bit Student 2018</p>
+        </div>
+    </footer>
     
+    <script src="js/dataModule.js"></script>
+    <script src="js/UIModule.js"></script>
+    <script src="js/mainModule.js"></script>
+    <script>
+        $(mainModule.initShowPage());
+    </script>
 </body>
+
 </html>
